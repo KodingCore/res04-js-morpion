@@ -1,18 +1,19 @@
+//Déclaration des constantes
 const body = document.querySelector("body");
 const mainGrid = document.createElement("main");
 const divWin = document.createElement("h1");
 divWin.classList.add("win");
-body.appendChild(divWin);
 
-let joueur1Win =  false;
-let joueur2Win =  false;
-let winText;
 
-let allBoxes = [];
+let joueur1Win =  false; //Joueur 1 à win
+let joueur2Win =  false; //Joueur 2 à win
+let winText; //node texte de win
+
+let allBoxes = []; //Toutes les cases
 let checkedJ1ClassList = []; //Boxes checké par le joueur 1
 let checkedJ2ClassList = []; //Boxes checké par le joueur 2
 
-let turn = "joueur1";
+let turn = "joueur1"; // tour de jouer
 
 function gridCreation()
 {
@@ -29,7 +30,11 @@ function gridCreation()
     {
         
         newBox = document.createElement("div");
+        
         mainGrid.appendChild(newBox);
+        
+        body.appendChild(divWin);
+        
         newBox.classList.add("box-" + rowsCounter + "-" + columnsCounter);
         
         allBoxes.push(newBox);
@@ -80,7 +85,8 @@ function clickBoxListener()
 }
 
 function checkWin(){
-    //8 possibilitées de combianisons
+    
+    //8 possibilitées de combianisons gagnantes
     const winCombianaisons = 
     [
         ['11','12','13'], 
@@ -95,20 +101,16 @@ function checkWin(){
     
     let i = 0;
     
-    
-    
-        
     for(let aWinCombine of winCombianaisons){ //pour chaque combianison ganantes
         
         for(let one of aWinCombine){ //pour chaque nombre de la combianison gagnante
             
             for(let aClass of checkedJ1ClassList){ //pour chaque nombre de la combianaison effectué
                 
-                if(aClass === one){
+                if(aClass === one){ // Si le nombre de la combianison gagnante est le meme que l'un de ceux effectué
                     i++;
-                    console.log(aClass + " " + i + " " + one);
                 }
-                if(i === 3){
+                if(i === 3){ // Si les 3 sont dans une combinaison gagnante
                     joueur1Win = true;
                     winText = document.createTextNode("Joueur 1 win!");
                     divWin.appendChild(winText);
@@ -125,11 +127,10 @@ function checkWin(){
             
             for(let aClass of checkedJ2ClassList){ //pour chaque nombre de la combianaison effectué
                 
-                if(aClass === one){
+                if(aClass === one){ // Si le nombre de la combianison gagnante est le meme que l'un de ceux effectué
                     i++;
-                    console.log(aClass + " " + i + " " + one);
                 }
-                if(i === 3){
+                if(i === 3){ // Si les 3 sont dans une combinaison gagnante
                     joueur2Win = true;
                     winText = document.createTextNode("Joueur 2 win!");
                     divWin.appendChild(winText);

@@ -57,6 +57,11 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
+body h1 {
+  text-align: center;
+  font-size: 4rem;
+  margin: 3rem;
+}
 body .grid {
   width: 50vw;
   height: 50vw;

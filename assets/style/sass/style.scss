@@ -1,0 +1,31 @@
+@import "libs/_reset.scss";
+
+body
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+    .grid{
+        width: 50vw;
+        height: 50vw;
+        display: grid;
+        margin: 5rem auto;
+        grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+        
+        [class*="box"]{
+            border: solid black 2px;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 6rem;
+        }
+        
+    }
+    .win{
+        text-align: center;
+        margin-top: 2rem;
+        font-size: 3rem;
+    }
+}

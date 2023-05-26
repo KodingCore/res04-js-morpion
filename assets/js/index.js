@@ -7,7 +7,7 @@ divWin.classList.add("win");
 
 let joueur1Win =  false; //Joueur 1 à win
 let joueur2Win =  false; //Joueur 2 à win
-let winText; //node texte de win
+let winText; //TextNode de win
 
 let allBoxes = []; //Toutes les cases
 let checkedJ1ClassList = []; //Boxes checké par le joueur 1
@@ -15,9 +15,13 @@ let checkedJ2ClassList = []; //Boxes checké par le joueur 2
 
 let turn = "joueur1"; // tour de jouer
 
+
+/************************************************************/
+/*****************CREATION DE LA GRILLE**********************/
+/************************************************************/
+
 function gridCreation()
 {
-    
     body.appendChild(mainGrid);
     mainGrid.classList.add("grid");
     
@@ -53,6 +57,10 @@ function gridCreation()
     }
 }
 
+
+/************************************************************/
+/************LISTENER DE CLICK DANS LES CASES****************/
+/************************************************************/
 function clickBoxListener()
 {   
     for(let box of allBoxes)
@@ -84,6 +92,10 @@ function clickBoxListener()
     }
 }
 
+
+/************************************************************/
+/*****************FONCTION DE TEST DE WIN********************/
+/************************************************************/
 function checkWin(){
     
     //8 possibilitées de combianisons gagnantes
